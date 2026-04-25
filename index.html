@@ -1,38 +1,296 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
   <base href="/">
 
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="iTechQu — Information Technology With Quality. We build pixel-perfect digital experiences — mobile apps, web platforms, cloud architecture, and enterprise software.">
+  <meta name="keywords" content="iTechQu, Flutter, Mobile App Development, Web Development, GIS, DevOps, AI, India">
+  <meta name="author" content="iTechQu">
 
-  <!-- iOS meta tags & icons -->
+  <!-- Open Graph -->
+  <meta property="og:title" content="iTechQu — IT With Quality">
+  <meta property="og:description" content="We engineer pixel-perfect digital experiences — mobile apps, web platforms, cloud architecture, and enterprise software built for scale.">
+  <meta property="og:type" content="website">
+
+  <!-- iOS meta tags -->
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="itechqu">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="iTechQu">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <title>itechqu</title>
   <link rel="manifest" href="manifest.json">
+
+  <title>iTechQu — IT With Quality</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:      #080B14;
+      --cyan:    #00C2FF;
+      --purple:  #7B2FFF;
+      --text:    #E2E8F0;
+      --muted:   #64748B;
+    }
+
+    body {
+      background: var(--bg);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      overflow: hidden;
+    }
+
+    /* ── Loading screen ───────────────────────────────────── */
+    #loading-screen {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      background: var(--bg);
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+
+    #loading-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* Grid background */
+    #loading-screen::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,194,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,194,255,0.06) 1px, transparent 1px);
+      background-size: 48px 48px;
+      animation: gridShift 4s linear infinite;
+    }
+
+    @keyframes gridShift {
+      from { background-position: 0 0; }
+      to   { background-position: 0 48px; }
+    }
+
+    /* Glow orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.25;
+      animation: pulse 4s ease-in-out infinite alternate;
+    }
+    .orb-1 {
+      width: 400px; height: 400px;
+      background: var(--purple);
+      top: -100px; left: -100px;
+      animation-delay: 0s;
+    }
+    .orb-2 {
+      width: 350px; height: 350px;
+      background: var(--cyan);
+      bottom: -80px; right: -80px;
+      animation-delay: 2s;
+    }
+
+    @keyframes pulse {
+      from { opacity: 0.15; transform: scale(1); }
+      to   { opacity: 0.3;  transform: scale(1.1); }
+    }
+
+    /* Logo */
+    .logo-wrap {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      margin-bottom: 48px;
+      animation: fadeDown 0.8s ease both;
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo-itech {
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .logo-qu {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--cyan);
+      letter-spacing: -1px;
+    }
+
+    /* Progress bar */
+    .progress-container {
+      position: relative;
+      z-index: 1;
+      width: min(360px, 80vw);
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 3px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--cyan), var(--purple), var(--cyan));
+      background-size: 200% 100%;
+      animation:
+        progressFill 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+        shimmer 1.5s linear infinite;
+    }
+
+    @keyframes progressFill {
+      0%   { width: 0%; }
+      40%  { width: 55%; }
+      80%  { width: 82%; }
+      100% { width: 97%; }
+    }
+
+    @keyframes shimmer {
+      from { background-position: 200% 0; }
+      to   { background-position: -200% 0; }
+    }
+
+    /* Status text */
+    .status-text {
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+      letter-spacing: 0.05em;
+      min-height: 20px;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Dots spinner below tagline */
+    .dots {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      margin-top: 24px;
+    }
+
+    .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      animation: dotBounce 1.2s ease-in-out infinite;
+    }
+    .dot:nth-child(2) { animation-delay: 0.2s; background: mix(var(--cyan), var(--purple), 50%); }
+    .dot:nth-child(3) { animation-delay: 0.4s; background: var(--purple); }
+
+    @keyframes dotBounce {
+      0%, 100% { transform: scaleY(1);   opacity: 0.5; }
+      50%       { transform: scaleY(1.8); opacity: 1; }
+    }
+
+    /* Tagline */
+    .tagline {
+      position: relative;
+      z-index: 1;
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      animation: fadeUp 0.8s 0.15s ease both;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- ── Animated loading screen ───────────────────────────────────────── -->
+  <div id="loading-screen">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <div class="logo-wrap">
+      <span class="logo-itech">iTech</span><span class="logo-qu">Qu</span>
+    </div>
+
+    <p class="tagline">Information Technology With Quality</p>
+
+    <div class="progress-container">
+      <div class="progress-track">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      <p class="status-text" id="status-text">Initialising engine...</p>
+      <div class="dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Cycle status messages while Flutter loads
+    const messages = [
+      'Initialising engine...',
+      'Loading assets...',
+      'Preparing interface...',
+      'Almost ready...',
+    ];
+    let msgIdx = 0;
+    const statusEl = document.getElementById('status-text');
+
+    const msgInterval = setInterval(() => {
+      msgIdx = (msgIdx + 1) % messages.length;
+      statusEl.style.opacity = '0';
+      setTimeout(() => {
+        statusEl.textContent = messages[msgIdx];
+        statusEl.style.opacity = '1';
+      }, 300);
+    }, 900);
+
+    // Flutter bootstrap — hide loader when app is mounted
+    window.addEventListener('flutter-first-frame', () => {
+      clearInterval(msgInterval);
+      statusEl.textContent = 'Ready!';
+
+      // Fill bar to 100% then fade out
+      const bar = document.getElementById('progress-bar');
+      bar.style.transition = 'width 0.4s ease';
+      bar.style.width = '100%';
+
+      setTimeout(() => {
+        document.getElementById('loading-screen').classList.add('hidden');
+      }, 500);
+    });
+  </script>
+
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
