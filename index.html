@@ -1,296 +1,505 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
   <base href="/">
 
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="iTechQu — Information Technology With Quality. We build pixel-perfect digital experiences — mobile apps, web platforms, cloud architecture, and enterprise software.">
-  <meta name="keywords" content="iTechQu, Flutter, Mobile App Development, Web Development, GIS, DevOps, AI, India">
-  <meta name="author" content="iTechQu">
+  <meta name="description" content="A new Flutter project.">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="iTechQu — IT With Quality">
-  <meta property="og:description" content="We engineer pixel-perfect digital experiences — mobile apps, web platforms, cloud architecture, and enterprise software built for scale.">
-  <meta property="og:type" content="website">
-
-  <!-- iOS meta tags -->
+  <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="iTechQu">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="portfolio">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
+
+
+  <title>Hemant Chandra</title>
   <link rel="manifest" href="manifest.json">
 
-  <title>iTechQu — IT With Quality</title>
-
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --bg:      #080B14;
-      --cyan:    #00C2FF;
-      --purple:  #7B2FFF;
-      --text:    #E2E8F0;
-      --muted:   #64748B;
+    /* Modern CSS Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    body {
-      background: var(--bg);
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    /* Variables */
+    :root {
+      --primary-color: #2563EB;
+      --secondary-color: #EF4444;
+      --background-color: #ffffff;
+      --text-color: #1E293B;
+      --dark-blue: #0F172A;
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    /* Dark mode detection */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary-color: #60A5FA;
+        --background-color: #121827;
+        --text-color: #F1F5F9;
+      }
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      font-size: 16px;
+      line-height: 1.5;
+      transition: background-color 0.3s ease;
       overflow: hidden;
     }
 
-    /* ── Loading screen ───────────────────────────────────── */
-    #loading-screen {
+    .loader-container {
       position: fixed;
-      inset: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--background-color);
+      z-index: 9999;
+    }
+
+    .brand {
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      width: 60px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    .brand-name {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .loader-content {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      background: var(--bg);
-      transition: opacity 0.6s ease, visibility 0.6s ease;
+      text-align: center;
+      max-width: 600px;
+      padding: 0 20px;
     }
 
-    #loading-screen.hidden {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    /* Grid background */
-    #loading-screen::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(0,194,255,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,194,255,0.06) 1px, transparent 1px);
-      background-size: 48px 48px;
-      animation: gridShift 4s linear infinite;
-    }
-
-    @keyframes gridShift {
-      from { background-position: 0 0; }
-      to   { background-position: 0 48px; }
-    }
-
-    /* Glow orbs */
-    .orb {
-      position: absolute;
+    .profile-wrapper {
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.25;
-      animation: pulse 4s ease-in-out infinite alternate;
-    }
-    .orb-1 {
-      width: 400px; height: 400px;
-      background: var(--purple);
-      top: -100px; left: -100px;
-      animation-delay: 0s;
-    }
-    .orb-2 {
-      width: 350px; height: 350px;
-      background: var(--cyan);
-      bottom: -80px; right: -80px;
-      animation-delay: 2s;
-    }
-
-    @keyframes pulse {
-      from { opacity: 0.15; transform: scale(1); }
-      to   { opacity: 0.3;  transform: scale(1.1); }
-    }
-
-    /* Logo */
-    .logo-wrap {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      gap: 2px;
-      margin-bottom: 48px;
-      animation: fadeDown 0.8s ease both;
-    }
-
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .logo-itech {
-      font-size: 48px;
-      font-weight: 900;
-      letter-spacing: -1px;
-      background: linear-gradient(135deg, var(--cyan), var(--purple));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .logo-qu {
-      font-size: 48px;
-      font-weight: 900;
-      color: var(--cyan);
-      letter-spacing: -1px;
-    }
-
-    /* Progress bar */
-    .progress-container {
-      position: relative;
-      z-index: 1;
-      width: min(360px, 80vw);
-      animation: fadeUp 0.8s 0.3s ease both;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .progress-track {
-      width: 100%;
-      height: 3px;
-      background: rgba(255,255,255,0.08);
-      border-radius: 999px;
       overflow: hidden;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
+      border: 3px solid var(--primary-color);
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4), 0 0 0 2px rgba(37,99,235,0.15);
+      background-color: #F5C518;
+      flex-shrink: 0;
+    }
+
+    .profile-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .name {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .title {
+      font-size: 18px;
+      color: var(--primary-color);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .status-text {
+      margin-top: 40px;
+      font-size: 16px;
+      opacity: 0.7;
     }
 
     .progress-bar {
+      width: 200px;
+      height: 6px;
+      background-color: rgba(128, 128, 128, 0.2);
+      border-radius: 3px;
+      margin-top: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-bar-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
       height: 100%;
       width: 0%;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--cyan), var(--purple), var(--cyan));
-      background-size: 200% 100%;
-      animation:
-        progressFill 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards,
-        shimmer 1.5s linear infinite;
+      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+      border-radius: 3px;
+      transition: width 0.4s ease;
     }
 
-    @keyframes progressFill {
-      0%   { width: 0%; }
-      40%  { width: 55%; }
-      80%  { width: 82%; }
-      100% { width: 97%; }
+    .pulse-container {
+      position: absolute;
+      bottom: 40px;
+      display: flex;
+      gap: 30px;
     }
 
-    @keyframes shimmer {
-      from { background-position: 200% 0; }
-      to   { background-position: -200% 0; }
-    }
-
-    /* Status text */
-    .status-text {
-      font-size: 13px;
-      color: var(--muted);
-      text-align: center;
-      letter-spacing: 0.05em;
-      min-height: 20px;
+    .technology {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0.6;
       transition: opacity 0.3s ease;
     }
 
-    /* Dots spinner below tagline */
-    .dots {
+    .technology:hover {
+      opacity: 1;
+    }
+
+    .tech-icon {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 8px;
+    }
+
+    .tech-name {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* Floating objects animation */
+    .floating-object {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    }
+
+    .floating-object:nth-child(1) {
+      width: 100px;
+      height: 100px;
+      top: 15%;
+      left: 15%;
+      animation: float 15s infinite ease-in-out;
+    }
+
+    .floating-object:nth-child(2) {
+      width: 150px;
+      height: 150px;
+      bottom: 20%;
+      left: 10%;
+      animation: float 20s infinite ease-in-out reverse;
+    }
+
+    .floating-object:nth-child(3) {
+      width: 80px;
+      height: 80px;
+      top: 20%;
+      right: 15%;
+      animation: float 12s infinite ease-in-out 2s;
+    }
+
+    .floating-object:nth-child(4) {
+      width: 120px;
+      height: 120px;
+      bottom: 15%;
+      right: 10%;
+      animation: float 18s infinite ease-in-out 1s reverse;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) translateX(0);
+      }
+      25% {
+        transform: translateY(-20px) translateX(10px);
+      }
+      50% {
+        transform: translateY(0) translateX(20px);
+      }
+      75% {
+        transform: translateY(20px) translateX(10px);
+      }
+    }
+
+    /* Pulse animation for loading indicator */
+    @keyframes pulse {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
+      }
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(37, 99, 235, 0);
+      }
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+      }
+    }
+
+    /* Loading animation */
+    .loading-dots {
       display: flex;
-      gap: 6px;
+      align-items: center;
       justify-content: center;
-      margin-top: 24px;
+      gap: 8px;
+      margin-top: 10px;
     }
 
     .dot {
-      width: 6px; height: 6px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      background: var(--cyan);
-      animation: dotBounce 1.2s ease-in-out infinite;
-    }
-    .dot:nth-child(2) { animation-delay: 0.2s; background: mix(var(--cyan), var(--purple), 50%); }
-    .dot:nth-child(3) { animation-delay: 0.4s; background: var(--purple); }
-
-    @keyframes dotBounce {
-      0%, 100% { transform: scaleY(1);   opacity: 0.5; }
-      50%       { transform: scaleY(1.8); opacity: 1; }
+      background-color: var(--primary-color);
+      animation: dot-pulse 1.5s infinite ease-in-out;
     }
 
-    /* Tagline */
-    .tagline {
-      position: relative;
-      z-index: 1;
-      font-size: 13px;
-      color: var(--muted);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 40px;
-      animation: fadeUp 0.8s 0.15s ease both;
+    .dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes dot-pulse {
+      0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .brand {
+        top: 20px;
+        left: 20px;
+      }
+
+      .logo {
+        width: 50px;
+        height: 34px;
+        font-size: 16px;
+      }
+
+      .brand-name {
+        font-size: 20px;
+      }
+
+      .profile-wrapper {
+        width: 120px;
+        height: 120px;
+      }
+
+      .name {
+        font-size: 28px;
+      }
+
+      .title {
+        font-size: 16px;
+      }
+
+      .pulse-container {
+        bottom: 20px;
+        gap: 20px;
+      }
+
+      .tech-icon {
+        width: 24px;
+        height: 24px;
+      }
+
+      .tech-name {
+        font-size: 12px;
+      }
+
+      .floating-object {
+        opacity: 0.05;
+      }
     }
   </style>
 </head>
 <body>
+<!-- Premium Loading UI -->
+<div class="loader-container" id="loader">
+  <!-- Background floating objects -->
+  <div class="floating-object"></div>
+  <div class="floating-object"></div>
+  <div class="floating-object"></div>
+  <div class="floating-object"></div>
 
-  <!-- ── Animated loading screen ───────────────────────────────────────── -->
-  <div id="loading-screen">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
+  <!-- Brand logo -->
+  <div class="brand">
+    <div class="logo">HTKC</div>
+  </div>
 
-    <div class="logo-wrap">
-      <span class="logo-itech">iTech</span><span class="logo-qu">Qu</span>
+  <!-- Main content -->
+  <div class="loader-content">
+    <div class="profile-wrapper">
+      <img src="assets/images/profile.png" alt="Hemant Chandra" class="profile-image" id="profile-image" onerror="this.src='icons/Icon-192.png';">
     </div>
-
-    <p class="tagline">Information Technology With Quality</p>
-
-    <div class="progress-container">
-      <div class="progress-track">
-        <div class="progress-bar" id="progress-bar"></div>
-      </div>
-      <p class="status-text" id="status-text">Initialising engine...</p>
-      <div class="dots">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-      </div>
+    <h1 class="name">Hemant Chandra</h1>
+    <h2 class="title">Senior Full Stack Developer</h2>
+    <p class="status-text" id="status-text">Loading Portfolio</p>
+    <div class="progress-bar">
+      <div class="progress-bar-inner" id="progress-bar"></div>
+    </div>
+    <div class="loading-dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
     </div>
   </div>
 
-  <script>
-    // Cycle status messages while Flutter loads
-    const messages = [
-      'Initialising engine...',
-      'Loading assets...',
-      'Preparing interface...',
-      'Almost ready...',
-    ];
-    let msgIdx = 0;
-    const statusEl = document.getElementById('status-text');
+  <!-- Technology icons -->
+  <div class="pulse-container">
+    <div class="technology">
+      <div class="tech-icon">
+        <svg viewBox="0 0 24 24" width="100%" height="100%" fill="currentColor">
+          <path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357L14.314 0zm.014 11.072l-6.471 6.457 6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.371z"/>
+        </svg>
+      </div>
+      <div class="tech-name">Flutter</div>
+    </div>
+    <div class="technology">
+      <div class="tech-icon">
+        <svg viewBox="0 0 24 24" width="100%" height="100%" fill="currentColor">
+          <path d="M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12c0-3.486-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H5.357l-.327 1.681H3.652l1.23-6.326h2.65c.797 0 1.378.209 1.744.628.366.418.476 1.002.33 1.752a2.836 2.836 0 0 1-.305.847c-.143.255-.33.49-.561.703zm4.024.715l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174H11.46l-.704 3.625H9.388l1.23-6.327h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389zm7.597-2.265a2.782 2.782 0 0 1-.305.847c-.143.255-.33.49-.561.703a2.44 2.44 0 0 1-.917.551c-.336.108-.765.164-1.286.164h-1.18l-.327 1.682h-1.378l1.23-6.326h2.649c.797 0 1.378.209 1.744.628.366.417.477 1.001.331 1.751zm-2.595-1.492h-.943l-.516 2.648h.838c.557 0 .971-.105 1.242-.314.272-.21.455-.559.551-1.049.092-.47.049-.802-.125-.995s-.524-.29-1.047-.29z"/>
+        </svg>
+      </div>
+      <div class="tech-name">Laravel</div>
+    </div>
+  </div>
+</div>
 
-    const msgInterval = setInterval(() => {
-      msgIdx = (msgIdx + 1) % messages.length;
-      statusEl.style.opacity = '0';
-      setTimeout(() => {
-        statusEl.textContent = messages[msgIdx];
-        statusEl.style.opacity = '1';
-      }, 300);
-    }, 900);
+<!-- Script to handle loading animation -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get elements
+    const progressBar = document.getElementById('progress-bar');
+    const statusText = document.getElementById('status-text');
+    const loader = document.getElementById('loader');
 
-    // Flutter bootstrap — hide loader when app is mounted
-    window.addEventListener('flutter-first-frame', () => {
-      clearInterval(msgInterval);
-      statusEl.textContent = 'Ready!';
+    // Set initial progress
+    let progress = 0;
 
-      // Fill bar to 100% then fade out
-      const bar = document.getElementById('progress-bar');
-      bar.style.transition = 'width 0.4s ease';
-      bar.style.width = '100%';
+    // Update progress function
+    function updateProgress() {
+      // Simulate loading progress
+      if (progress < 100) {
+        progress += Math.random() * 15;
+        if (progress > 100) progress = 100;
 
-      setTimeout(() => {
-        document.getElementById('loading-screen').classList.add('hidden');
-      }, 500);
+        // Update progress bar width
+        progressBar.style.width = progress + '%';
+
+        // Update status text based on progress
+        if (progress < 30) {
+          statusText.textContent = 'Loading resources...';
+        } else if (progress < 60) {
+          statusText.textContent = 'Initializing Flutter engine...';
+        } else if (progress < 90) {
+          statusText.textContent = 'Almost ready...';
+        } else {
+          statusText.textContent = 'Launching portfolio...';
+        }
+
+        // Continue until 100%
+        if (progress < 100) {
+          setTimeout(updateProgress, 500 + Math.random() * 1000);
+        } else {
+          // Hide loader when completed
+          setTimeout(function() {
+            loader.style.opacity = '0';
+            setTimeout(function() {
+              loader.style.display = 'none';
+            }, 500);
+          }, 500);
+        }
+      }
+    }
+
+    // Start progress animation
+    setTimeout(updateProgress, 500);
+  });
+
+  // Handle Flutter bootstrap
+  window.addEventListener('load', function() {
+    // Load Flutter
+    var scriptTag = document.createElement('script');
+    scriptTag.src = 'flutter.js';
+    scriptTag.type = 'application/javascript';
+    document.body.append(scriptTag);
+
+    scriptTag.addEventListener('load', function() {
+      _flutter.loader.load({
+        onEntrypointLoaded: async function(engineInitializer) {
+          let appRunner = await engineInitializer.initializeEngine();
+          await appRunner.runApp();
+        }
+      });
     });
-  </script>
+  });
+</script>
 
-  <script src="flutter_bootstrap.js" async></script>
+<script src="flutter_bootstrap.js" async></script>
+<!-- Original Flutter bootstrap script reference -->
+<!-- The script element below is replaced by our custom loading implementation -->
+<!-- <script src="flutter_bootstrap.js" async></script> -->
 </body>
 </html>
