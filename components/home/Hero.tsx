@@ -16,7 +16,7 @@ export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  // const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]); // removed: was hiding content in production
 
   return (
     <section
@@ -57,10 +57,7 @@ export function Hero() {
         ))}
       </motion.div>
 
-      <motion.div
-        style={{ opacity }}
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center"
-      >
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
 
         {/* Main headline */}
         <div className="overflow-hidden mb-6">
@@ -143,7 +140,7 @@ export function Hero() {
             </div>
           ))}
         </motion.div>
-      </motion.div>
+      </div>
 
       {/* Scroll indicator */}
       <motion.div
