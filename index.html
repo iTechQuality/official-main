@@ -233,7 +233,7 @@
     <div class="container">
         <header class="header">
             <h1>Privacy Policy</h1>
-            <p>Government Building Survey, PWD Bridge Survey, Government EV Changing Station Survey, Udyam Aakanksha Certificate, Know Your Location &amp; Rescue Portal</p>
+            <p>Government Building Survey, PWD Bridge Survey, Government EV Changing Station Survey, Udyam Aakanksha Certificate, Know Your Location, Rescue Portal &amp; Rainfall Monitoring System</p>
         </header>
 
         <main class="content">
@@ -268,6 +268,7 @@
                     <li><strong>Udyam Aakanksha Certificate</strong> — Udyam (MSME) certificate verification &amp; management</li>
                     <li><strong>Know Your Location</strong> — Geolocation and mapping services</li>
                     <li><strong>Rescue Portal</strong> — Wildlife and emergency rescue management platform</li>
+                    <li><strong>Rainfall Monitoring System</strong> — Daily rainfall data collection, geofenced verification, and GIS analytics platform</li>
                 </ul>
                 
                 <div class="highlight-box">
@@ -327,6 +328,16 @@
                     <li><strong>Push Notification Tokens:</strong> Device tokens for Firebase Cloud Messaging alerts</li>
                     <li><strong>Web Portal Activity (Admin):</strong> Session data and audit logs for the React-based admin dashboard</li>
                 </ul>
+
+                <h3>2.6 Rainfall Monitoring System — Additional Data</h3>
+                <p>In addition to the general data above, this App collects:</p>
+                <ul>
+                    <li><strong>Precise Location (GPS Geofencing):</strong> Real-time GPS coordinates verified against a 20-meter geofence radius around designated rainfall gauge stations before allowing daily data submissions</li>
+                    <li><strong>Station &amp; Rainfall Data:</strong> Daily rainfall measurements (in millimeters), station metadata, and field operator notes submitted by assigned personnel</li>
+                    <li><strong>Operator Credentials &amp; Jurisdiction:</strong> JWT-authenticated login credentials, mobile numbers/email, assigned geographic jurisdictions (District ➔ Block ➔ Village ➔ Station), and forced password rotation status</li>
+                    <li><strong>Session &amp; Device Tokens:</strong> Active device session tokens for single-session control (15-second heartbeat check) to ensure security and prevent concurrent logins across devices</li>
+                    <li><strong>Offline Cache:</strong> Local SQLite/Hive storage containing queued rainfall entries and cached GIS geography hierarchy (`cg_geography_hierarchy.json` / `cg_block_coordinates.json`) for offline field operations</li>
+                </ul>
             </section>
 
             <section id="location-data" class="section">
@@ -334,7 +345,7 @@
                 
                 <div class="highlight-box">
                     <h4>Why We Need Your Location</h4>
-                    <p>Location data is essential for accurate surveys and ensuring data integrity for government planning purposes across buildings, bridges, and EV changing stations.</p>
+                    <p>Location data is essential for accurate surveys and ensuring data integrity for government planning purposes across buildings, bridges, EV charging stations, and rainfall gauge stations.</p>
                 </div>
 
                 <h3>3.1 How We Use Location Data</h3>
@@ -365,7 +376,7 @@
                         </div>
                         <div class="accordion-content">
                             <ul>
-                                <li>Processing and storing survey data (buildings, bridges, EV changing stations)</li>
+                                <li>Processing and storing survey data (buildings, bridges, EV charging stations, daily rainfall gauge stations)</li>
                                 <li>Providing App functionality and features</li>
                                 <li>Ensuring data quality and accuracy</li>
                                 <li>Government reporting and analysis</li>
@@ -600,7 +611,7 @@
 
             <div class="highlight-box">
                 <h4>Your Consent</h4>
-                <p>By downloading, installing, and using any of the CHiPS App(s) — including <strong>Government Building Survey</strong>, <strong>PWD Bridge Survey</strong>, <strong>Government EV Charging Station Survey</strong>, <strong>Udyam Aakanksha Certificate</strong>, <strong>Know Your Location</strong>, and <strong>RescuePortal</strong> — you acknowledge that you have read, understood, and agree to be bound by this Privacy Policy and consent to the processing of your information as described herein.</p>
+                <p>By downloading, installing, and using any of the CHiPS App(s) — including <strong>Government Building Survey</strong>, <strong>PWD Bridge Survey</strong>, <strong>Government EV Charging Station Survey</strong>, <strong>Udyam Aakanksha Certificate</strong>, <strong>Know Your Location</strong>, <strong>RescuePortal</strong>, and <strong>Rainfall Monitoring System</strong> — you acknowledge that you have read, understood, and agree to be bound by this Privacy Policy and consent to the processing of your information as described herein.</p>
             </div>
         </main>
 
