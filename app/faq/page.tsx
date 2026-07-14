@@ -26,7 +26,7 @@ const FAQS = [
   {
     category: "Technology",
     items: [
-      { q: "What technologies do you use?", a: "Our primary stack includes Next.js, React, Node.js, Flutter (mobile), Laravel (PHP), PostgreSQL + PostGIS (GIS), Redis, Docker, and cloud platforms including AWS, Azure, and NIC Cloud (for government projects)." },
+      { q: "What technologies do you use?", a: "Our primary stack includes Next.js, React, Node.js, Flutter (mobile), Laravel (PHP), PostgreSQL + PostGIS (GIS), Redis, Python, and TensorFlow for AI/ML. We choose technologies that scale, perform, and stand the test of time." },
       { q: "Can you integrate with government portals like VAHAN, Aadhaar, DigiLocker?", a: "Yes. We have hands-on experience integrating with VAHAN, Aadhaar, DigiLocker, NIC APIs, and various state government data platforms. This is especially relevant for our RTO and government projects." },
       { q: "Do you provide source code ownership?", a: "Yes. Upon full payment, complete source code ownership is transferred to you. We provide a Git repository with full commit history, documentation, and deployment scripts." },
     ],

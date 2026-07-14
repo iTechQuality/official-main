@@ -24,8 +24,8 @@ const FAQS = [
     a: "We provide a full data migration service. Our team analyzes your existing data (whether in spreadsheets, legacy software, or physical records) and migrates it to the new system with validation and quality checks.",
   },
   {
-    q: "Is the system hosted on government cloud or private servers?",
-    a: "We support both options. The system can be hosted on NIC cloud (GI Cloud / MeghRaj), state government data centers, or private cloud infrastructure based on your department's policy and security requirements.",
+    q: "Where is the system hosted?",
+    a: "We support flexible hosting options based on your department's policy — including NIC data centers, state government servers, or your own on-premise infrastructure. We handle the full deployment and setup.",
   },
   {
     q: "What kind of training and support do you provide?",

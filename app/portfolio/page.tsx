@@ -93,7 +93,7 @@ const PROJECTS = [
     title: "TubeSnap — Video Platform",
     client: "Media Startup",
     type: "Media Tech",
-    stack: ["React", "Node.js", "AWS S3", "FFmpeg"],
+    stack: ["React", "Node.js", "FFmpeg", "MySQL"],
     desc: "Short-form video sharing platform with upload, transcoding, feed algorithm, likes, comments, creator profiles, and content moderation tools.",
     color: "#F59E0B",
     year: "2024–2025",

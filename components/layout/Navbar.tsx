@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import {
   Menu, X, ChevronDown, ArrowRight, Sun, Moon,
-  Code2, Database, Map, Smartphone, Brain, Building2, Cloud, Wrench,
+  Code2, Database, Map, Smartphone, Brain, Building2, Wrench,
   Car, FileText, BarChart3, Settings, Users, Globe, Briefcase, LayoutGrid,
   Phone, Mail, MessageCircle,
 } from "lucide-react";
@@ -16,7 +16,7 @@ import { SITE } from "@/constants/site";
 type IconFC = React.FC<{ className?: string }>;
 
 const ICON_MAP: Record<string, IconFC> = {
-  Code2, Database, Map, Smartphone, Brain, Building2, Cloud, Wrench,
+  Code2, Database, Map, Smartphone, Brain, Building2, Wrench,
   Car, FileText, BarChart3, Settings, Users, Globe, Briefcase, LayoutGrid,
   Phone, Mail, MessageCircle,
 };

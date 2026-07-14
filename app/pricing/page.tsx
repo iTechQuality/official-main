@@ -22,7 +22,7 @@ const PLANS = [
       "Basic reporting dashboard",
       "3 months post-launch support",
       "Documentation & training",
-      "Cloud hosting setup",
+      "Server deployment assistance",
     ],
     cta: "Get a Quote",
     href: "/contact",

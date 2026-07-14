@@ -11,7 +11,7 @@ const BENEFITS = [
   { icon: Users, metric: "5K+", label: "Daily Transactions Handled", description: "The system handles thousands of transactions per day without slowdowns — built for government-scale operations.", color: "#06B6D4" },
   { icon: Lock, metric: "100%", label: "Audit Trail Coverage", description: "Every action is logged. Full transparency for anti-corruption compliance, government audits, and RTI queries.", color: "#10B981" },
   { icon: Globe, metric: "VAHAN", label: "National Portal Integration", description: "Seamlessly synced with the national VAHAN portal for inter-state data sharing and national statistics.", color: "#F59E0B" },
-  { icon: Award, metric: "99.9%", label: "System Uptime SLA", description: "Cloud-hosted with redundancy and automatic failover. Zero data loss, zero service interruption.", color: "#EF4444" },
+  { icon: Award, metric: "99.9%", label: "System Uptime SLA", description: "Hosted with redundancy and automatic failover. Zero data loss, zero service interruption.", color: "#EF4444" },
 ];
 
 export function RtoBenefits() {

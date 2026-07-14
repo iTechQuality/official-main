@@ -40,10 +40,8 @@ export const TECH_STACK = [
   { name: "PostgreSQL", category: "Database", color: "#336791" },
   { name: "PostGIS", category: "GIS", color: "#4169E1" },
   { name: "Redis", category: "Cache", color: "#DC382D" },
-  { name: "Docker", category: "DevOps", color: "#2496ED" },
   { name: "Python", category: "AI/ML", color: "#3776AB" },
   { name: "TensorFlow", category: "AI/ML", color: "#FF6F00" },
-  { name: "AWS", category: "Cloud", color: "#FF9900" },
 ];
 
 export const SERVICES = [
@@ -100,15 +98,6 @@ export const SERVICES = [
       "End-to-end digital transformation — citizen portals, e-governance platforms, and compliance systems.",
     features: ["Citizen Portals", "e-Governance Platforms", "Compliance Systems", "Public Data Management", "Inter-department Integration"],
     color: "#EF4444",
-  },
-  {
-    icon: "Cloud",
-    title: "Cloud & DevOps",
-    slug: "cloud",
-    description:
-      "Cloud-native architecture, CI/CD pipelines, containerization, and infrastructure automation for enterprise deployments.",
-    features: ["AWS / Azure / GCP", "Docker & Kubernetes", "CI/CD Pipelines", "Auto-scaling", "24/7 Monitoring"],
-    color: "#8B5CF6",
   },
   {
     icon: "Wrench",

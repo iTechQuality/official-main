@@ -12,9 +12,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   Database: "#336791",
   GIS: "#4169E1",
   Cache: "#DC382D",
-  DevOps: "#2496ED",
   "AI/ML": "#FF9900",
-  Cloud: "#FF6600",
 };
 
 export function TechStack() {

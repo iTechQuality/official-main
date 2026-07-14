@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Database, Map, Smartphone, Brain, Building2, Cloud, Wrench } from "lucide-react";
+import { Code2, Database, Map, Smartphone, Brain, Building2, Wrench } from "lucide-react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { staggerContainer, fadeUp, viewport } from "@/lib/animations";
 import { SERVICES } from "@/constants/site";
 
 const ICON_MAP: Record<string, React.FC<{ className?: string; style?: React.CSSProperties }>> = {
-  Code2, Database, Map, Smartphone, Brain, Building2, Cloud, Wrench,
+  Code2, Database, Map, Smartphone, Brain, Building2, Wrench,
 };
 
 export function ServicesGrid() {

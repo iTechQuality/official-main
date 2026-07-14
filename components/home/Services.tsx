@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Code2, Database, Map, Smartphone, Brain, Building2, Cloud, Wrench } from "lucide-react";
+import { ArrowRight, Code2, Database, Map, Smartphone, Brain, Building2, Wrench } from "lucide-react";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { fadeUp, staggerContainer, viewport } from "@/lib/animations";
 import { SERVICES } from "@/constants/site";
 
 const ICON_MAP: Record<string, React.FC<{ className?: string; style?: React.CSSProperties }>> = {
-  Code2, Database, Map, Smartphone, Brain, Building2, Cloud, Wrench,
+  Code2, Database, Map, Smartphone, Brain, Building2, Wrench,
 };
 
 export function Services() {

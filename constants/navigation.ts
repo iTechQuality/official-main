@@ -27,7 +27,6 @@ export const NAV_LINKS = [
       { label: "Mobile & Web Apps", href: "/services#mobile-web", description: "Cross-platform applications", icon: "Smartphone" },
       { label: "AI Solutions", href: "/services#ai", description: "Machine learning & automation", icon: "Brain" },
       { label: "Government Projects", href: "/services#government", description: "Digital transformation for public sector", icon: "Building2" },
-      { label: "Cloud & DevOps", href: "/services#cloud", description: "Scalable cloud infrastructure", icon: "Cloud" },
       { label: "AMC & Support", href: "/services#amc", description: "Annual maintenance contracts", icon: "Wrench" },
     ],
   },
@@ -68,7 +67,6 @@ export const FOOTER_LINKS = {
     { label: "Mobile & Web Apps", href: "/services#mobile-web" },
     { label: "AI Solutions", href: "/services#ai" },
     { label: "Government Projects", href: "/services#government" },
-    { label: "Cloud Solutions", href: "/services#cloud" },
     { label: "AMC & Support", href: "/services#amc" },
   ],
   company: [

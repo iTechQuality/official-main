@@ -47,7 +47,7 @@ const TEAM = [
   { name: "Team Member", role: "Android Developer", initials: "AD", color: "#EF4444", stack: ["Kotlin", "Android SDK", "REST"] },
   { name: "Team Member", role: "Backend Developer", initials: "BD", color: "#8B5CF6", stack: ["PHP", "Laravel", "MySQL"] },
   { name: "Team Member", role: "UI/UX Designer", initials: "UX", color: "#EC4899", stack: ["Figma", "Prototyping", "Design Systems"] },
-  { name: "Team Member", role: "DevOps Engineer", initials: "DO", color: "#06B6D4", stack: ["Docker", "Linux", "CI/CD"] },
+  { name: "Team Member", role: "Systems Engineer", initials: "SE", color: "#06B6D4", stack: ["Linux", "Networking", "Server Admin"] },
 ];
 
 const PERKS = [
@@ -55,7 +55,7 @@ const PERKS = [
   { icon: "🚀", title: "Real Product Ownership", desc: "Work on products that are live in government offices and businesses across India." },
   { icon: "📚", title: "Continuous Learning", desc: "New tech every year — from Android to Flutter, Laravel to Node.js, and now GIS." },
   { icon: "🤝", title: "Close-knit Team", desc: "Small team means everyone ships, everyone matters, and everyone grows fast." },
-  { icon: "💻", title: "Full Stack Exposure", desc: "You don't get boxed in — frontend, backend, mobile, GIS, and cloud." },
+  { icon: "💻", title: "Full Stack Exposure", desc: "You don't get boxed in — frontend, backend, mobile, GIS, and AI." },
   { icon: "🌱", title: "MSME Backed", desc: "Officially registered, growing steadily — building something that lasts." },
 ];
 
