@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Fragment } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import {
@@ -88,9 +89,16 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-18">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-600 to-blue-600 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-violet-500/25 group-hover:shadow-violet-500/40 transition-shadow duration-300">
-                iQ
+            <Link href="/" className="flex items-center gap-3 shrink-0 group">
+              <div className="relative w-9 h-9 rounded-xl overflow-hidden shadow-lg shadow-violet-500/30 ring-1 ring-white/15 group-hover:ring-violet-400/50 group-hover:shadow-violet-500/50 transition-all duration-300">
+                <Image
+                  src="/brand-icon.jpg"
+                  alt="iTechQu Logo"
+                  width={36}
+                  height={36}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  priority
+                />
               </div>
               <span className="text-lg font-bold tracking-tight" style={{ fontFamily: "var(--font-syne)" }}>
                 <span className="text-white">iTech</span>
@@ -256,12 +264,18 @@ export function Navbar() {
             >
               {/* Drawer Header */}
               <div className="flex items-center justify-between p-4 border-b border-white/8">
-                <Link href="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-blue-600 flex items-center justify-center text-white font-bold text-xs">
-                    iQ
+                <Link href="/" className="flex items-center gap-2.5" onClick={() => setMobileOpen(false)}>
+                  <div className="relative w-8 h-8 rounded-lg overflow-hidden shadow-md ring-1 ring-white/15">
+                    <Image
+                      src="/brand-icon.jpg"
+                      alt="iTechQu Logo"
+                      width={32}
+                      height={32}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <span className="font-bold text-white" style={{ fontFamily: "var(--font-syne)" }}>
-                    iTechQu
+                  <span className="font-bold text-white text-base" style={{ fontFamily: "var(--font-syne)" }}>
+                    iTech<span className="gradient-text">Qu</span>
                   </span>
                 </Link>
                 <button

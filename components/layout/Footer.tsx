@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Mail, Phone, MapPin, Twitter, Linkedin, Github,
@@ -71,11 +72,17 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Brand Column */}
           <motion.div variants={fadeUp} className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2.5 mb-5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-500 to-blue-600 flex items-center justify-center shadow-lg shadow-violet-500/30">
-                <span className="text-white font-bold text-sm" style={{ fontFamily: "var(--font-syne)" }}>iQ</span>
+            <Link href="/" className="flex items-center gap-3 mb-5 group inline-flex">
+              <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-xl shadow-violet-500/30 ring-1 ring-white/20 group-hover:ring-violet-400/50 group-hover:scale-105 transition-all duration-300">
+                <Image
+                  src="/brand-icon.jpg"
+                  alt="iTechQu Brand Logo"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <span className="font-bold text-white text-xl" style={{ fontFamily: "var(--font-syne)" }}>
+              <span className="font-bold text-white text-2xl tracking-tight" style={{ fontFamily: "var(--font-syne)" }}>
                 iTech<span className="gradient-text">Qu</span>
               </span>
             </Link>
