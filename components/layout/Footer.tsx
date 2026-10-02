@@ -125,7 +125,8 @@ export function Footer() {
 
           {/* Links Columns */}
           {[
-            { title: "Products & Services", links: [...(NAV_FOOTER.products || []), ...(NAV_FOOTER.services || []).slice(0, 5)] },
+            { title: "Apps & Utilities", links: [...(NAV_FOOTER.apps || []), ...(NAV_FOOTER.products || [])] },
+            { title: "Services", links: (NAV_FOOTER.services || []).slice(0, 5) },
             { title: "Company", links: NAV_FOOTER.company || [] },
             { title: "Legal & Support", links: NAV_FOOTER.legal || [] },
           ].map((col) => (

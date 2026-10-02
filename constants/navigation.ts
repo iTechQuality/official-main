@@ -18,6 +18,30 @@ export const NAV_LINKS = [
     ],
   },
   {
+    label: "Apps & Utilities",
+    href: "/apps",
+    children: [
+      {
+        label: "SnapDL Downloader",
+        href: "/snapdl",
+        description: "Fast 4K video downloader with private media vault",
+        icon: "Zap",
+      },
+      {
+        label: "HC Player",
+        href: "/hcplayer",
+        description: "Ultra-smooth 4K media player & multiplayer games",
+        icon: "Film",
+      },
+      {
+        label: "All Apps & Utilities",
+        href: "/apps",
+        description: "Explore our suite of consumer mobile apps",
+        icon: "LayoutGrid",
+      },
+    ],
+  },
+  {
     label: "Services",
     href: "/services",
     children: [
@@ -59,6 +83,11 @@ export const FOOTER_LINKS = {
   products: [
     { label: "RTO Management System", href: "/products/rto-mis" },
     { label: "All Products", href: "/products" },
+  ],
+  apps: [
+    { label: "Apps & Utilities Hub", href: "/apps" },
+    { label: "SnapDL Video Downloader", href: "/snapdl" },
+    { label: "HC Player 4K", href: "/hcplayer" },
   ],
   services: [
     { label: "Custom Software", href: "/services#custom-software" },

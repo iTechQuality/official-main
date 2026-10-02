@@ -8,7 +8,7 @@ import {
   Menu, X, ChevronDown, ArrowRight, Sun, Moon,
   Code2, Database, Map, Smartphone, Brain, Building2, Wrench,
   Car, FileText, BarChart3, Settings, Users, Globe, Briefcase, LayoutGrid,
-  Phone, Mail, MessageCircle,
+  Phone, Mail, MessageCircle, Zap, Film,
 } from "lucide-react";
 import { NAV_LINKS } from "@/constants/navigation";
 import { SITE } from "@/constants/site";
@@ -18,7 +18,7 @@ type IconFC = React.FC<{ className?: string }>;
 const ICON_MAP: Record<string, IconFC> = {
   Code2, Database, Map, Smartphone, Brain, Building2, Wrench,
   Car, FileText, BarChart3, Settings, Users, Globe, Briefcase, LayoutGrid,
-  Phone, Mail, MessageCircle,
+  Phone, Mail, MessageCircle, Zap, Film,
 };
 
 const megaMenuVariants: Variants = {
