@@ -141,9 +141,7 @@ export function AppHero({ app }: AppHeroProps) {
             >
               <a
                 href={app.downloadUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                download
+                download="SnapDL.apk"
                 className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl text-base font-bold text-white shadow-2xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: `linear-gradient(135deg, ${app.accentColor}, ${app.secondaryColor})`,
@@ -303,6 +301,7 @@ export function AppHero({ app }: AppHeroProps) {
               <div className="p-2 border-t border-white/10">
                 <a
                   href={app.downloadUrl}
+                  download="SnapDL.apk"
                   className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-bold text-white text-xs"
                   style={{
                     background: `linear-gradient(135deg, ${app.accentColor}, ${app.secondaryColor})`,
