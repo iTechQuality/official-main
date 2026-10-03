@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     creator: "@itechqu",
   },
   robots: { index: true, follow: true },
-  icons: { icon: "/brand-icon.jpg", apple: "/brand-icon.jpg" },
+  icons: { icon: "/brand-icon.png", apple: "/brand-icon.png" },
 };
 
 export const viewport: Viewport = {

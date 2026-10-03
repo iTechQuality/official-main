@@ -75,7 +75,7 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-5 group inline-flex">
               <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-xl shadow-violet-500/30 ring-1 ring-white/20 group-hover:ring-violet-400/50 group-hover:scale-105 transition-all duration-300">
                 <Image
-                  src="/brand-icon.jpg"
+                  src="/brand-icon.png"
                   alt="iTechQu Brand Logo"
                   width={40}
                   height={40}

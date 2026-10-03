@@ -92,7 +92,7 @@ export function Navbar() {
             <Link href="/" className="flex items-center gap-3 shrink-0 group">
               <div className="relative w-9 h-9 rounded-xl overflow-hidden shadow-lg shadow-violet-500/30 ring-1 ring-white/15 group-hover:ring-violet-400/50 group-hover:shadow-violet-500/50 transition-all duration-300">
                 <Image
-                  src="/brand-icon.jpg"
+                  src="/brand-icon.png"
                   alt="iTechQu Logo"
                   width={36}
                   height={36}
@@ -267,7 +267,7 @@ export function Navbar() {
                 <Link href="/" className="flex items-center gap-2.5" onClick={() => setMobileOpen(false)}>
                   <div className="relative w-8 h-8 rounded-lg overflow-hidden shadow-md ring-1 ring-white/15">
                     <Image
-                      src="/brand-icon.jpg"
+                      src="/brand-icon.png"
                       alt="iTechQu Logo"
                       width={32}
                       height={32}
